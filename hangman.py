@@ -156,9 +156,7 @@ while (inc_guesses < 6):
             if word[i] == guess:
                 wordarr[i] = guess
 
-        try:
-            wordarr.index('_')
-        except ValueError:
+        if '_' not in wordarr:
             print(hangman[inc_guesses])
             print("CONGRATULATIONS, YOU HAVE WON!")
             print("The word was", word)
