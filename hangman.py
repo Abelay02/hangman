@@ -115,35 +115,28 @@ s0 = "#############\n\
 hangman = []
 hangman.extend((s0, s1, s2, s3, s4, s5, s6))
 
-
-finished = False
 valid_guess = False
-inc_guesses = 0
+inc_guesses = 0            # keep track of incorrect guesses
 tot_guesses = 0
-letters_guessed = set()
+letters_guessed = set()    # keep track of letters already used
 guess = ''
 
-def load_words():
+def rand_word():
     with open('words_alpha_5.txt') as word_file:
         valid_words = list(word_file.read().split())
-    return valid_words
+        randword = valid_words[random.randint(1, 360331)]
+    return randword
 
-english = load_words()
-ind = random.randint(1, 360331)
-word = english[ind]
+
+word = rand_word()
 letset = set(word)
-
 wordlen = len(word)
-
-
 wordarr = ['_'] * wordlen
-wordstr = ' '.join(wordarr)
 
-#print(word, wordstr, letset)
 print("Welcome to Hangman!")
 
-
 while (inc_guesses < 6):
+
     while (valid_guess == False):
         guess = input("guess a letter: ")
         guess = guess.lower()
