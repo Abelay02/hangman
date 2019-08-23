@@ -122,9 +122,9 @@ letters_guessed = set()    # keep track of letters already used
 guess = ''
 
 def rand_word():
-    with open('words_alpha_5.txt') as word_file:
+    with open('google-10000-english-usa-no-swears-medium.txt') as word_file:
         valid_words = list(word_file.read().split())
-        randword = valid_words[random.randint(1, 360331)]
+        randword = valid_words[random.randint(1, len(valid_words))]
     return randword
 
 
